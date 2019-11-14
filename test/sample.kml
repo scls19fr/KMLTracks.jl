@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2">
+	<ExtendedData>
+		<Data name="GPSModelName">
+			<value>MyGPS</value>
+		</Data>
+	</ExtendedData>
+	<Placemark>
+		<gx:Track>
+			<altitudeMode>absolute</altitudeMode>
+				<when>2019-11-07T08:44:12Z</when><gx:coord>0.309042 46.586349 111.4</gx:coord>
+				<when>2019-11-07T08:44:16Z</when><gx:coord>0.309042 46.586349 111.1</gx:coord>
+				<when>2019-11-07T08:44:20Z</when><gx:coord>0.309042 46.586349 111.3</gx:coord>
+				<when>2019-11-07T08:44:24Z</when><gx:coord>0.309043 46.586349 111.8</gx:coord>
+				<when>2019-11-07T08:44:28Z</when><gx:coord>0.309043 46.586349 112.0</gx:coord>
+				<when>2019-11-07T08:44:32Z</when><gx:coord>0.309043 46.586349 112.1</gx:coord>
+				<when>2019-11-07T08:44:36Z</when><gx:coord>0.309044 46.586349 112.7</gx:coord>
+				<when>2019-11-07T08:44:40Z</when><gx:coord>0.309045 46.586349 112.6</gx:coord>
+				<when>2019-11-07T08:44:44Z</when><gx:coord>0.309045 46.586349 112.2</gx:coord>
+				<when>2019-11-07T08:44:48Z</when><gx:coord>0.309008 46.586369 112.2</gx:coord>
+				<when>2019-11-07T08:44:52Z</when><gx:coord>0.308875 46.586437 112.4</gx:coord>
+				<when>2019-11-07T08:44:56Z</when><gx:coord>0.308667 46.586544 112.9</gx:coord>
+				<when>2019-11-07T08:45:00Z</when><gx:coord>0.308424 46.586674 112.8</gx:coord>
+				<when>2019-11-07T08:45:04Z</when><gx:coord>0.308150 46.586807 113.0</gx:coord>
+				<when>2019-11-07T08:45:08Z</when><gx:coord>0.307868 46.586948 112.8</gx:coord>
+				<when>2019-11-07T08:45:12Z</when><gx:coord>0.307582 46.587082 112.9</gx:coord>
+				<when>2019-11-07T08:45:16Z</when><gx:coord>0.307315 46.587204 112.8</gx:coord>
+				<when>2019-11-07T08:45:20Z</when><gx:coord>0.307085 46.587238 112.8</gx:coord>
+				<when>2019-11-07T08:45:24Z</when><gx:coord>0.306882 46.587265 113.3</gx:coord>
+				<when>2019-11-07T08:45:28Z</when><gx:coord>0.306745 46.587257 112.9</gx:coord>
+				<when>2019-11-07T08:45:32Z</when><gx:coord>0.306660 46.587212 113.1</gx:coord>
+				<when>2019-11-07T08:45:36Z</when><gx:coord>0.306628 46.587181 114.3</gx:coord>
+				<when>2019-11-07T08:45:40Z</when><gx:coord>0.306626 46.587181 115.5</gx:coord>
+				<when>2019-11-07T08:45:44Z</when><gx:coord>0.306625 46.587181 116.3</gx:coord>
+				<when>2019-11-07T08:45:48Z</when><gx:coord>0.306624 46.587181 116.9</gx:coord>
+				<when>2019-11-07T08:45:52Z</when><gx:coord>0.306623 46.587181 117.0</gx:coord>
+				<when>2019-11-07T08:45:56Z</when><gx:coord>0.306622 46.587181 117.1</gx:coord>
+				<when>2019-11-07T08:46:00Z</when><gx:coord>0.306614 46.587173 117.8</gx:coord>
+				<when>2019-11-07T08:46:04Z</when><gx:coord>0.306463 46.587002 117.6</gx:coord>
+				<when>2019-11-07T08:46:08Z</when><gx:coord>0.306125 46.586601 117.4</gx:coord>
+				<when>2019-11-07T08:46:12Z</when><gx:coord>0.305615 46.586014 117.3</gx:coord>
+				<when>2019-11-07T08:46:16Z</when><gx:coord>0.304981 46.585266 117.8</gx:coord>
+				<when>2019-11-07T08:46:20Z</when><gx:coord>0.304251 46.584415 125.2</gx:coord>
+				<when>2019-11-07T08:46:24Z</when><gx:coord>0.303518 46.583591 141.2</gx:coord>
+				<when>2019-11-07T08:46:28Z</when><gx:coord>0.302823 46.582794 156.0</gx:coord>
+				<when>2019-11-07T08:46:32Z</when><gx:coord>0.302078 46.582012 168.5</gx:coord>
+				<when>2019-11-07T08:46:36Z</when><gx:coord>0.301352 46.581249 183.5</gx:coord>
+				<when>2019-11-07T08:46:40Z</when><gx:coord>0.300650 46.580517 197.3</gx:coord>
+				<when>2019-11-07T08:46:44Z</when><gx:coord>0.300004 46.579792 208.8</gx:coord>
+				<when>2019-11-07T08:46:48Z</when><gx:coord>0.299313 46.579037 215.7</gx:coord>
+				<when>2019-11-07T08:46:52Z</when><gx:coord>0.298545 46.578300 226.7</gx:coord>
+				<when>2019-11-07T08:46:56Z</when><gx:coord>0.297745 46.577602 238.2</gx:coord>
+				<when>2019-11-07T08:47:00Z</when><gx:coord>0.296938 46.576939 248.2</gx:coord>
+				<when>2019-11-07T08:47:04Z</when><gx:coord>0.296108 46.576279 257.2</gx:coord>
+				<when>2019-11-07T08:47:08Z</when><gx:coord>0.295266 46.575615 267.6</gx:coord>
+
+		</gx:Track>
+	</Placemark>
+</kml>
