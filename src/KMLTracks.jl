@@ -8,8 +8,8 @@ Have a look at https://developers.google.com/kml/documentation for more informat
 module KMLTracks
 
 using Dates
-using LightXML
 using TimeZones
+using EzXML
 
 export read_kml_file, parse_kml_string
 
@@ -85,7 +85,7 @@ end
 Read KML file from filename `fname`.
 """
 function read_kml_file(fname)
-    xdoc = parse_file(fname)
+    xdoc = readxml(fname)
     return _parse_kml(xdoc)
 end
 
@@ -96,47 +96,43 @@ end
 Parse GPX data from String `s`.
 """
 function parse_kml_string(s)
-    xdoc = parse_string(s)
+    xdoc = parsexml(s)
     return _parse_kml(xdoc)
 end
 
 """
-    _parse_kml(xdoc::XMLDocument) -> KMLDocument
+    _parse_kml(xdoc::EzXML.Document) -> KMLDocument
 
-Parse `XMLDocument` and return a `KMLDocument`.
+Parse `EzXML.Document` and return a `KMLDocument`.
 """
-function _parse_kml(xdoc::XMLDocument)
+function _parse_kml(xdoc::EzXML.Document)
     kmls = root(xdoc)
 
     kmldoc = KMLDocument()
 
-    for kml in child_nodes(kmls)
-        if name(kml) == "Placemark"
-            for track in child_nodes(kml)
-                if name(track) == "Track"
-                    dt = dt0
-                    for d in child_nodes(track)
-                        if name(d) == "when" && dt == dt0
-                            s = content(d)
-                            fmt = dateformat"yyyy-mm-ddTHH:MM:SSzzz"
-                            s = replace(s, "Z" => "+00:00")  # bug https://github.com/JuliaTime/TimeZones.jl/pull/227
-                            dt = parse(ZonedDateTime, s, fmt)
-                        elseif name(d) == "coord" && dt != dt0
-                            s = content(d)
-                            s = replace(s, "," => ".")  # fix bug with decimal separator
-                            long, lat, alt = split(s, " ")
-                            long, lat, alt = parse.(Float64, (long, lat, alt))
-                            p = KMLTrackPoint(dt, long, lat, alt)
-                            push!(kmldoc.placemark.track.points, p)
-                            dt = dt0
-                        end
-                    end
-                end
-            end
-        end
-    end
+    ns = namespaces(xdoc.root)
+    d_ns = Dict(ns)
+    @assert(d_ns == KML_NS, "Namespace error $d_ns different from $KML_NS")
 
-    free(xdoc)
+    ns[1] = "x" => ns[1][2]  # change default namespace key
+
+    a_when = findall("//x:Placemark/gx:Track/x:when/text()", xdoc.root, ns)
+    a_when = nodecontent.(a_when)
+    fmt = dateformat"yyyy-mm-ddTHH:MM:SSzzz"
+    a_when = ZonedDateTime.(a_when, fmt)
+
+    a_coords = findall("//x:Placemark/gx:Track/gx:coord/text()", xdoc.root, ns)
+    a_coords = nodecontent.(a_coords)
+    a_coords = split.(a_coords, " ")
+
+    @assert(length(a_coords) == length(a_when), "a_coords/a_when length mismatch")
+
+    for (i, dt) in enumerate(a_when)
+        long, lat, alt = a_coords[i]
+        long, lat, alt = parse.(Float64, (long, lat, alt))
+        p = KMLTrackPoint(dt, long, lat, alt)
+        push!(kmldoc.placemark.track.points, p)
+    end
 
     return kmldoc
 end
