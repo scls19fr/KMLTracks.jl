@@ -123,12 +123,13 @@ function _parse_kml(xdoc::EzXML.Document)
 
     a_coords = findall("//x:Placemark/gx:Track/gx:coord/text()", xdoc.root, ns)
     a_coords = nodecontent.(a_coords)
-    a_coords = split.(a_coords, " ")
 
     @assert(length(a_coords) == length(a_when), "a_coords/a_when length mismatch")
 
     for (i, dt) in enumerate(a_when)
-        long, lat, alt = a_coords[i]
+        coord = a_coords[i]
+        coord = replace(coord, "," => ".")  # fix issue with some badbly formatted kml files
+        long, lat, alt = split(coord, " ")
         long, lat, alt = parse.(Float64, (long, lat, alt))
         p = KMLTrackPoint(dt, long, lat, alt)
         push!(kmldoc.placemark.track.points, p)
