@@ -118,8 +118,7 @@ function _parse_kml(xdoc::EzXML.Document)
 
     a_when = findall("//x:Placemark/gx:Track/x:when/text()", xdoc.root, ns)
     a_when = nodecontent.(a_when)
-    fmt = dateformat"yyyy-mm-ddTHH:MM:SSzzz"
-    a_when = ZonedDateTime.(a_when, fmt)
+    a_when = ZonedDateTime.(a_when, dateformat"yyyy-mm-ddTHH:MM:SSzzz")
 
     a_coords = findall("//x:Placemark/gx:Track/gx:coord/text()", xdoc.root, ns)
     a_coords = nodecontent.(a_coords)
