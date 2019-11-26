@@ -1,5 +1,6 @@
 using Test
 using KMLTracks
+using TimeZones
 
 
 @testset "parse_kml_string" begin
@@ -21,6 +22,11 @@ using KMLTracks
     </kml>"""
     kmldoc = parse_kml_string(s)
     @test length(kmldoc.placemark.track.points) == 3
+    pt = kmldoc.placemark.track.points[1]
+    @test pt.time == ZonedDateTime(2019, 11, 07, 8, 44, 12, tz"UTC")
+    @test pt.longitude == 0.309042
+    @test pt.latitude == 46.586349
+    @test pt.altitude == 111.4
 end
 
 
@@ -28,5 +34,10 @@ end
     fname = "sample.kml"
     kmldoc = read_kml_file(fname)
     @test length(kmldoc.placemark.track.points) == 45
+    pt = kmldoc.placemark.track.points[1]
+    @test pt.time == ZonedDateTime(2019, 11, 07, 8, 44, 12, tz"UTC")
+    @test pt.longitude == 0.309042
+    @test pt.latitude == 46.586349
+    @test pt.altitude == 111.4
 end
 
