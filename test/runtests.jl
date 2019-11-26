@@ -29,7 +29,6 @@ using TimeZones
     @test pt.altitude == 111.4
 end
 
-
 @testset "read_kml_file" begin
     fname = "sample.kml"
     kmldoc = read_kml_file(fname)
@@ -40,4 +39,3 @@ end
     @test pt.latitude == 46.586349
     @test pt.altitude == 111.4
 end
-
