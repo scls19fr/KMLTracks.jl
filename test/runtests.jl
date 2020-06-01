@@ -38,6 +38,12 @@ end
     @test pt.longitude == 0.309042
     @test pt.latitude == 46.586349
     @test pt.altitude == 111.4
+
+    pt = kmldoc.placemark.track.points[45]
+    @test pt.time == ZonedDateTime(2019, 11, 07, 8, 47, 8, 1, tz"UTC")
+    @test pt.longitude == 0.295266
+    @test pt.latitude == 46.575615
+    @test pt.altitude == 267.6
 end
 
 @testset "parse_kml_string_coma_issue" begin
