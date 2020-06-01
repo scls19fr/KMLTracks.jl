@@ -50,9 +50,9 @@
 				<when>2019-11-07T08:46:48Z</when><gx:coord>0.299313 46.579037 215.7</gx:coord>
 				<when>2019-11-07T08:46:52Z</when><gx:coord>0.298545 46.578300 226.7</gx:coord>
 				<when>2019-11-07T08:46:56Z</when><gx:coord>0.297745 46.577602 238.2</gx:coord>
-				<when>2019-11-07T08:47:00Z</when><gx:coord>0.296938 46.576939 248.2</gx:coord>
-				<when>2019-11-07T08:47:04Z</when><gx:coord>0.296108 46.576279 257.2</gx:coord>
-				<when>2019-11-07T08:47:08Z</when><gx:coord>0.295266 46.575615 267.6</gx:coord>
+				<when>2019-11-07T08:47:00.1Z</when><gx:coord>0.296938 46.576939 248.2</gx:coord>
+				<when>2019-11-07T08:47:04.01Z</when><gx:coord>0.296108 46.576279 257.2</gx:coord>
+				<when>2019-11-07T08:47:08.001Z</when><gx:coord>0.295266 46.575615 267.6</gx:coord>
 
 		</gx:Track>
 	</Placemark>

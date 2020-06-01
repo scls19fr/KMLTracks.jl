@@ -118,7 +118,25 @@ function _parse_kml(xdoc::EzXML.Document)
 
     a_when = findall("//x:Placemark/gx:Track/x:when/text()", xdoc.root, ns)
     a_when = nodecontent.(a_when)
-    a_when = ZonedDateTime.(a_when, dateformat"yyyy-mm-ddTHH:MM:SSzzz")
+
+    # workaround for issue 26962
+    # "Can't parse a DateTime with optional milliseconds if there is anything after it"
+    # <https://github.com/JuliaLang/julia/issues/26962>
+    a_when = map(a_when) do when
+        try
+            ZonedDateTime(when, dateformat"yyyy-mm-ddTHH:MM:SSzzz")
+        catch
+            try
+                ZonedDateTime(when, dateformat"yyyy-mm-ddTHH:MM:SS.szzz")
+            catch
+                try
+                    ZonedDateTime(when, dateformat"yyyy-mm-ddTHH:MM:SS.sszzz")
+                catch
+                    ZonedDateTime(when, dateformat"yyyy-mm-ddTHH:MM:SS.ssszzz")
+                end
+            end
+        end
+    end
 
     a_coords = findall("//x:Placemark/gx:Track/gx:coord/text()", xdoc.root, ns)
     a_coords = nodecontent.(a_coords)
