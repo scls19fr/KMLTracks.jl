@@ -127,7 +127,7 @@ function _parse_kml(xdoc::EzXML.Document)
 
     for (i, dt) in enumerate(a_when)
         coord = a_coords[i]
-        coord = replace(coord, "," => ".")  # fix issue with some badbly formatted kml files
+        coord = replace(coord, "," => ".")  # fix issue with some badly formatted kml files
         long, lat, alt = split(coord, " ")
         long, lat, alt = parse.(Float64, (long, lat, alt))
         p = KMLTrackPoint(dt, long, lat, alt)
