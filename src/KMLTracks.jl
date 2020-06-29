@@ -10,6 +10,7 @@ module KMLTracks
 using Dates
 using TimeZones
 using EzXML
+using FileIO
 
 export read_kml_file, parse_kml_string
 
@@ -88,6 +89,8 @@ function read_kml_file(fname)
     xdoc = readxml(fname)
     return _parse_kml(xdoc)
 end
+
+load(f::File{format"KML"}) = read_kml_file(filename(f))
 
 """
     parse_kml_string(s) -> KMLDocument
